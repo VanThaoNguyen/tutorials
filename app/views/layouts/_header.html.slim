@@ -1,0 +1,6 @@
+.layouts-header-container
+  .container
+    ul.list-inline style='float:right;'
+      li = current_user.name if current_user.present?
+      li = link_to 'Login', new_user_session_path
+      li = link_to 'Sign out', destroy_user_session_path

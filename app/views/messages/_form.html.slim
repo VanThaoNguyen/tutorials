@@ -1,0 +1,5 @@
+.messages-message-container
+  = simple_form_for message, remote: true, authenticity_token: true do |f|
+    = f.input :content, data: { textarea: 'message' } 
+    = f.hidden_field :chatroom_id, value: chatroom.id
+    = f.submit 'Send', class: 'btn btn-primary', data: { send: 'message' }
