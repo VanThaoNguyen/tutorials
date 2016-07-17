@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount ActionCable.server => '/cable'
 
-  resources :chatrooms, only: [:show, :new, :create], param: :slug
+  resources :chatrooms, only: [:index, :show, :new, :create], param: :slug
   resources :messages
 
-  root 'chatrooms#show'
+  root 'chatrooms#index'
 end

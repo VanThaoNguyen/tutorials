@@ -1,6 +1,10 @@
 class ChatroomsController < ApplicationController
+  def index
+    @chatrooms = Chatroom.all
+  end
+
   def show
-    @chatroom = Chatroom.find_by(slug: :north)
+    @chatroom = Chatroom.find_by(slug: chatroom_params)
     @message  = Message.new
   end
 
@@ -14,6 +18,10 @@ class ChatroomsController < ApplicationController
   end
 
   private
+    def chatroom_params
+      params[:slug]
+    end
+
     def message_params
       params.require(:message).permit(:content, :chatroom_id)
     end

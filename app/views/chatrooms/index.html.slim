@@ -1,0 +1,6 @@
+#chatrooms-index-container
+  .container
+    .row
+      - @chatrooms.each do |chatroom|
+        .col-md-3
+          = link_to chatroom.name, chatroom_path(chatroom)
